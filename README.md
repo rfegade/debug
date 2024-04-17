@@ -56,7 +56,7 @@ For each of the following issues:
 
 **Customer 1:** When I open the application, my posts do not load and all I see is a 'server error'.
 
-# Solution:
+#Solution:
 
     When launching the application, I encountered an issue where my posts failed to load, and instead, a 'server error' message was displayed. Initially, this error was hard-coded within the error method in the Request.js file. However, after modifying the hard-coded message to be 'error: error', it provided more insight into the underlying issue. Upon further investigation, I discovered that the actual error stemmed from the authenticateUser.js file, specifically an "Authentication error: Error: Missing name in user data" error.
 
@@ -75,7 +75,7 @@ For each of the following issues:
 
 **Customer 2:** When I click on "Top" or "Old", the selector does not update with my new selection.
 
-# Solution:
+#Solution:
 
     On Inspecting, I identifield that issue lies in 'onChangeSort' method. The method toggles 'menuOpen' state to close the dropdown but change in sorting isn't reflected immediently.
     To fix this, after toggling 'menuOpen' state, 'changeSort' method is called tp update the sorting option.
@@ -87,7 +87,7 @@ For each of the following issues:
 
 **Customer 3:** When I sort by "Top", there are posts with only 28 votes ranking higher than posts with 180 votes!
 
-# Solution:
+#Solution:
 
     The "PostsLoaded" method was lacking sorting functionality based on votes. By incorporating sorting logic into the "PostsLoaded" method, this issue was resolved:
 
@@ -95,7 +95,7 @@ For each of the following issues:
 
 **Customer 4:** When I page through posts, although the posts are changing, the vote count in the top left corner does not match the total count of votes of the displayed posts.
 
-# Solution:
+#Solution:
 
     Currently, Vote count is calculated only once during 'Recountvotes' action, which is dispatched after posts ate loaded. However this is not updateing the total votes of the displayed posts. This is fixed by recalculating the total count whenever the posts are loaded or changed by moving 'Reduce()' to 'PostsLoaded' method.
 
